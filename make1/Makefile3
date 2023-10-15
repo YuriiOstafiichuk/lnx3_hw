@@ -1,0 +1,16 @@
+.PHONY: clean
+
+CC := gcc
+CFLAGS := -Wall -g
+
+SRCS := main.c src1.c
+OBJS := $(SRCS:.c=.o)
+
+prog: $(OBJS)
+	$(CC) -o $@ $^ -lm
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $<
+
+clean:
+	rm -f $(OBJS) prog

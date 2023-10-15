@@ -1,0 +1,11 @@
+all: prog main.o src1.c
+
+prog: main.o src1.o
+	gcc -o prog main.o src1.o -lm
+
+main.o: main.c
+	gcc -Wall -g -c main.c
+
+src1.o: src1.c
+	gcc -Wall -g -c src1.c
+
